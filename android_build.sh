@@ -16,13 +16,6 @@ else
     echo "ANDROID_NDK_ROOT is set to ${ANDROID_NDK_ROOT}"
 fi
 
-if [[ -z "${TAICHI_C_API_INSTALL_DIR}" ]]; then
-    echo "Please set TAICHI_C_API_INSTALL_DIR env variable"
-    exit
-else
-    echo "TAICHI_C_API_INSTALL_DIR is set to ${TAICHI_C_API_INSTALL_DIR}"
-fi
-
 build_dir="build-taichi-android-aarch64"
 if [ ! -d "$build_dir" ]; then 
 mkdir $build_dir
