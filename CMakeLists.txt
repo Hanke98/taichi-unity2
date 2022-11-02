@@ -18,7 +18,7 @@ endif()
 
 find_package(Vulkan REQUIRED)
 
-set(TAICHI_C_API_INSTALL_DIR $ENV{TAICHI_REPO_DIR}/_skbuild/win-amd64-3.8/cmake-install/c_api CACHE PATH "path to taichi c-api installation directory")
+set(TAICHI_C_API_INSTALL_DIR $ENV{TAICHI_C_API_INSTALL_DIR} CACHE PATH "path to taichi c-api installation directory")
 
 # https://discourse.cmake.org/t/cmake-does-not-find-libraries-when-compiling-for-android/5098
 if (ANDROID)
@@ -42,3 +42,10 @@ file(GLOB SRCS "${PROJECT_SOURCE_DIR}/src/*")
 file(GLOB INCS "${PROJECT_SOURCE_DIR}/include/*")
 add_library(taichi_unity SHARED ${SRCS} ${INCS})
 target_link_libraries(taichi_unity ${LINK_LIBS})
+
+# set_target_properties(taichi_unity PROPERTIES
+#     BUNDLE True
+#     MACOSX_BUNDLE_BUNDLE_NAME taichi_unity
+#     MACOSX_BUNDLE_BUNDLE_VERSION "0.1"
+#     MACOSX_BUNDLE_SHORT_VERSION_STRING "0.1"
+# )
