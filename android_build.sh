@@ -1,7 +1,6 @@
 #!/bin/sh
 set -e
 
-CLANG_EXECUTABLE=$(find $ANDROID_NDK_ROOT -name "clang++")
 # build taichi_c_api lib
 if [[ -z "${TAICHI_REPO_DIR}" ]]; then
     echo "Please set TAICHI_REPO_DIR env variable"
@@ -28,6 +27,8 @@ build_dir="build-taichi-android-aarch64"
 if [ ! -d "$build_dir" ]; then 
 mkdir $build_dir
 fi
+
+CLANG_EXECUTABLE=$(find $ANDROID_NDK_ROOT -name "clang++")
 
 pushd $build_dir
 cmake $TAICHI_REPO_DIR \
