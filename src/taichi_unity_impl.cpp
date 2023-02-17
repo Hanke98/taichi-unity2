@@ -1,4 +1,5 @@
 #include <cassert>
+#include <iostream>
 #include "taichi_unity_impl.vulkan.h"
 
 IUnityInterfaces* UNITY_INTERFACES;
@@ -193,6 +194,10 @@ void UNITY_INTERFACE_API tix_render_thread_main(int32_t event_id) {
 
   // Wait on and reset the event in Unity's command buffer.
   INSTANCE->wait_and_reset_event(runtime, RUNTIME_STATE->event);
+  std::string out_path = "/storage/emulated/0/Android/data/com.TaichiGraphics.TaichiUnityExample/files/log.txt";
+  freopen(out_path.c_str(), "a", stdout);
+  printf("run in tix_render_thread_main!");
+
 }
 
 
@@ -267,6 +272,9 @@ TI_DLL_EXPORT void TI_API_CALL tix_copy_memory_host_to_device_unity(
 // Note that submitting commands simultaneously to a same queue is not allowed
 // by any graphics API.
  TI_DLL_EXPORT void* TI_API_CALL tix_submit_async_unity(TiRuntime runtime) {
+  std::string out_path = "/storage/emulated/0/Android/data/com.TaichiGraphics.TaichiUnityExample/files/log.txt";
+  freopen(out_path.c_str(), "a", stdout);
+  printf("in tix_submit_async_unity!");
   return (void*)(&tix_render_thread_main);
 }
 

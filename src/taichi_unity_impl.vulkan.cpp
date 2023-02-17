@@ -1,6 +1,11 @@
 #include <cassert>
+#include <cstdlib>
 #include <vector>
 #include <map>
+
+
+#include "stdio.h"
+#include <iostream>
 #include "taichi_unity_impl.vulkan.h"
 #include "Unity/IUnityGraphicsVulkan.h"
 
@@ -42,6 +47,12 @@ TiMemory PluginInstanceVulkan::import_native_memory(TiRuntime runtime, TixNative
   return ti_import_vulkan_memory(runtime, &vmii);
 }
 void PluginInstanceVulkan::wait_and_reset_event(TiRuntime runtime, TiEvent event) const {
+  // std::cerr << "++++++++++++++++++++++++++++++++++++++++++\n";
+  // std::cerr << "++++++++++++++++++++++++++++++++++++++++++\n";
+  // exit(-1);
+  // std::string out_path = "/storage/emulated/0/Android/data/com.TaichiGraphics.TaichiUnityExample/files/log.txt";
+  // freopen(out_path.c_str(), "a", stdout);
+
   TiVulkanEventInteropInfo interop_info {};
   ti_export_vulkan_event(runtime, event, &interop_info);
 

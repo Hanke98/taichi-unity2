@@ -59,6 +59,7 @@ cmake -DCMAKE_BUILD_TYPE=Release \
     -DANDROID_ABI="arm64-v8a" \
     -DANDROID_PLATFORM=android-26 \
     -G "Ninja" \
+    -DCMAKE_EXPORT_COMPILE_COMMANDS=ON\
     -DTAICHI_C_API_INSTALL_DIR="../build-taichi-android-aarch64/install/c_api" \
     ..
 cmake --build . -t taichi_unity
