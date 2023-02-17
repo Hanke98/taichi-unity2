@@ -1,3 +1,11 @@
+# taichi-unity仓库
+这是Unity集成Taichi的工具仓库。
++ 通过运行android_build.sh自动构建Unity中使用Taichi的动态链接库`taichi-unity.so`
++ 需要按照下面的说明`TAICHI_REPO_DIR`环境变量； 
+
+以下是原Readme
+
+---
 # Taichi Unity Native Plugin
 
 This repository provides extension APIs listed in `taichi/taichi_unity.h` in the [main Taichi repository](https://github.com/taichi-dev/taichi). To build this plugin you can either manually or with Visual Studio.
